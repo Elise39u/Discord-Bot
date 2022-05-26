@@ -3,6 +3,7 @@ import discord
 from server_ import keep_alive
 from serverJoin import onMemberJoin
 from serverLeave import onMemberLeave
+from socials import onSocialsMessage
 
 intents = discord.Intents.default()
 intents.members = True
@@ -24,6 +25,10 @@ async def on_message(message):
   #Check of the messages starts with 39!M and then await a sendback
   if message.content.startswith('39M!Hello'):
     await message.channel.send("Hello there im Big debut miku can i help you with something?")
+
+  if message.content.startswith('39M!Socials'):
+    await onSocialsMessage(message)
+    
 
 @client.event
 async def on_member_join(member):

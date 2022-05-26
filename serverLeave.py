@@ -6,7 +6,7 @@ imageUrl = random.choice(embedLeaveUrls)
 
 embed=discord.Embed(title="Wait someone disappeared", description="Someone has left Elise her sekai. I hope they come back soon. <:Cute:879363818982084618> <:MikuStare:714726830703247362>", color=0xfe3ee4)
 embed.set_image(url=imageUrl)
-embed.set_footer(text="🎀 Welcome to elise her hangout 🎀")
+embed.set_footer(text="🎀 Someone left Elise her hangout 🎀")
 
 async def onMemberLeave(member, client):
   channel = client.get_channel(797789187910664193)
