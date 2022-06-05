@@ -9,7 +9,7 @@ import messages
 
 intents = discord.Intents.default()
 intents.members = True
-activity = discord.Activity(type=discord.ActivityType.listening, name="Mircale Paint Cover by Elise")
+activity = discord.Activity(type=discord.ActivityType.watching, name="Elise her Sekai")
 my_secret = os.environ['TOKEN']
 client = discord.Client(intents=intents, activity=activity)
 
@@ -25,7 +25,7 @@ async def on_message(message):
   if message.author == client.user:
     return 
 
-  #Check of the messages starts with 39!M and then await a sendback
+  #Check of the messages starts with 39!M and then await a sendback depending on the message command
   if message.content.startswith('39M!Hello'):
     await message.channel.send("Hello there im Big debut miku can i help you with something? {0.author}".format(message))
 
@@ -37,8 +37,14 @@ async def on_message(message):
 
   if message.content.startswith('39M!Help'):
     await messages.onHelpMessage(message)
-    
 
+  if message.content.startswith('39M!MyAvatar'):
+    if(len(message.mentions) == 1):
+      await messages.GetAvatar(message,message.mentions[0])
+    else:
+      await messages.GetAvatar(message, message.author)
+    
+#Check if a member has left or joined the guild 
 @client.event
 async def on_member_join(member):
   await onMemberJoin(member, client)
@@ -48,6 +54,7 @@ async def on_member_remove(member):
   await onMemberLeave(member, client)
 
 #client.run to run the bot with the secret token
+#Also check if the request limit has reached anf if so restart the bot
 keep_alive()
 try:
   client.run(my_secret)
