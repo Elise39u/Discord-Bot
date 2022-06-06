@@ -27,7 +27,7 @@ async def on_message(message):
 
   #Check of the messages starts with 39!M and then await a sendback depending on the message command
   if message.content.startswith('39M!Hello'):
-    await message.channel.send("Hello there im Big debut miku can i help you with something? {0.author}".format(message))
+    await message.channel.send("Hello there im Big debut miku can i help you with something? {0.author.display_name}".format(message))
 
   if message.content.startswith('39M!Socials'):
     await onSocialsMessage(message)
@@ -44,8 +44,10 @@ async def on_message(message):
     else:
       await messages.GetAvatar(message, message.author)
 
-  if message.content.startswith('39M!8Ball') and len(message.content) > 10:
+  if message.content.startswith('39M!8Ball') and len(message.content) > 11:
     await messages.EightBallResponse(message)
+  elif message.content.startswith('39M!8Ball') and len(message.content) < 11:
+    await message.channel.send("I miss a question {0.author.mention}".format(message))
     
 #Check if a member has left or joined the guild 
 @client.event
