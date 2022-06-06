@@ -43,6 +43,9 @@ async def on_message(message):
       await messages.GetAvatar(message,message.mentions[0])
     else:
       await messages.GetAvatar(message, message.author)
+
+  if message.content.startswith('39M!8Ball') and len(message.content) > 10:
+    await messages.EightBallResponse(message)
     
 #Check if a member has left or joined the guild 
 @client.event
