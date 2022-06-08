@@ -12,6 +12,7 @@ intents.members = True
 activity = discord.Activity(type=discord.ActivityType.watching, name="Elise her Sekai")
 my_secret = os.environ['TOKEN']
 client = discord.Client(intents=intents, activity=activity)
+blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/"]
 
 #Register an event and define when the bot is ready to use
 @client.event
@@ -25,6 +26,13 @@ async def on_message(message):
   if message.author == client.user:
     return 
 
+  if len(message.content) > 0:
+    for word in blackListedWords:
+      if word in message.content:
+        await message.delete()
+        await message.channel.send("{0.author.mention} You said a blacklisted word".format(message))
+        await messages.BlackListedWords(message, client)
+      
   #Check of the messages starts with 39!M and then await a sendback depending on the message command
   if message.content.startswith('39M!Hello'):
     await message.channel.send("Hello there im Big debut miku can i help you with something? {0.author.display_name}".format(message))
