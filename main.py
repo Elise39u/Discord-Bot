@@ -6,6 +6,7 @@ from serverLeave import onMemberLeave
 from socials import onSocialsMessage
 from Jokes import onJoke
 import messages
+import moderation
 
 intents = discord.Intents.default()
 intents.members = True
@@ -18,7 +19,7 @@ blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/"]
 @client.event
 async def on_ready():
   print("I have launched with {0.user}".format(client))
-
+  
 #Function to check for a message 
 #The on_message function can take a argument
 @client.event
@@ -56,6 +57,14 @@ async def on_message(message):
     await messages.EightBallResponse(message)
   elif message.content.startswith('39M!8Ball') and len(message.content) < 11:
     await message.channel.send("I miss a question {0.author.mention}".format(message))
+
+  if message.content.startswith('39M!Kick'):
+    haha = False
+    roleCheck = moderation.checkRole(message, haha)
+    if(roleCheck):
+      await moderation.OnKick(message, client)
+    else:
+      await moderation.ErrorMessage(message)
     
 #Check if a member has left or joined the guild 
 @client.event
@@ -70,6 +79,8 @@ async def on_member_remove(member):
 #Also check if the request limit has reached anf if so restart the bot
 keep_alive()
 try:
+  print(client.run(my_secret))
   client.run(my_secret)
 except:
+  print("at except")
   os.system("kill 1")
