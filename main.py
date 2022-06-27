@@ -62,9 +62,13 @@ async def on_message(message):
     haha = False
     roleCheck = moderation.checkRole(message, haha)
     if(roleCheck):
-      await moderation.OnKick(message, client)
+      imuunRole = moderation.checkAdminRole(message.mentions[0], haha)
+      if(imuunRole):
+        await moderation.ErrorMessage(message, "An error occured with the 39M!Kick command. Hang om im looking into the issue <:MikuStare:714726830703247362>", "I cant kick people with the role Vocaloid or Manager or Myself", message.author)
+      else:
+        await moderation.OnKick(message, client)
     else:
-      await moderation.ErrorMessage(message)
+      await moderation.ErrorMessage(message, "An error occured with the 39M!Kick command. Hang om im looking into the issue <:MikuStare:714726830703247362>", "Lacks the permissions to use this command", message.author)
     
 #Check if a member has left or joined the guild 
 @client.event
