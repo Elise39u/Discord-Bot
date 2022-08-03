@@ -11,13 +11,20 @@ async def OnKick(message, client):
   EmbedKicked.set_footer(text="🎀 Someone is kicked 🎀")
   await channel.send(embed=EmbedKicked)
 
-def checkRole(message, boolean):
+def checkModRoles(message, boolean):
   for userRole in message.author.roles:
     if userRole.name == 'Vocaloids' or userRole.name == 'Managers':
       boolean = True
       break;
   return boolean
 
+def checkOwnerRoles(message, boolean):
+  for userRole in message.author.roles:
+    if userRole.name == 'Vocaloids':
+      boolean = True
+      break;
+  return boolean
+  
 def checkAdminRole(member, boolean):
   for userRole in member.roles:
    if userRole.name == 'Vocaloids' or userRole.name == 'Managers' or userRole.name == 'Big Debut Miku': 
