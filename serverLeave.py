@@ -9,4 +9,4 @@ imageUrl = random.choice(embedLeaveUrls)
 async def onMemberLeave(member, client):
   channel = client.get_channel(797789187910664193)
   await channel.send("Oh Goodbye {0.name} We hope you return one day again to this sekai".format(member))
-  await EmbedBuilder.BuildEmbed(None, "Wait someone disappeared", "Someone has left Elise her sekai. I hope they come back soon. <:Cute:879363818982084618>", imageUrl, 0xfe3ee4, "🎀 Someone left Elise her hangout 🎀", channel)
+  await EmbedBuilder.BuildEmbed(None, "Wait someone disappeared", "Someone has left Elise her sekai. I hope they come back soon. <:Cute:879363818982084618>", imageUrl, 0xfe3ee4, "🎀 Someone left Elise her hangout 🎀", channel, None)

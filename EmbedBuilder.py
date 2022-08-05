@@ -2,7 +2,7 @@ import discord
 
 
 async def BuildEmbed(message, embedTitle, embedDescription, imageUrl, colour,
-                     footer, channel):
+                     footer, channel, url):
     newEmbed = discord.Embed(title=embedTitle, description=embedDescription)
     if not colour:
         newEmbed.colour = 0xfe3ee4
@@ -11,7 +11,10 @@ async def BuildEmbed(message, embedTitle, embedDescription, imageUrl, colour,
     if len(imageUrl) > 0:
         newEmbed.set_image(url=imageUrl)
     newEmbed.set_footer(text=footer)
+    if url:
+      newEmbed.url = url;
     if message is None:
       await channel.send(embed=newEmbed)
     else: 
       await message.channel.send(embed=newEmbed)
+                    

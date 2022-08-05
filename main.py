@@ -10,8 +10,8 @@ import moderation
 
 intents = discord.Intents.default()
 intents.members = True
-activity = discord.Activity(type=discord.ActivityType.watching,
-                            name="Elise her Sekai")
+activity = discord.Activity(type=discord.ActivityType.listening,
+                            name="Hello Worker by Elise")
 my_secret = os.environ['TOKEN']
 client = discord.Client(intents=intents, activity=activity)
 blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/"]
@@ -55,6 +55,9 @@ async def on_message(message):
 
     if message.content.startswith('39M!Help'):
         await messages.onHelpMessage(message)
+
+    if message.content.startswith('39M!Elise'):
+        await messages.EliseGenderStory(message)
 
     if message.content.startswith('39M!MyAvatar'):
         if (len(message.mentions) == 1):
