@@ -7,6 +7,7 @@ from socials import onSocialsMessage
 from Jokes import onJoke
 import messages
 import moderation
+import youtube
 
 intents = discord.Intents.default()
 intents.members = True
@@ -21,6 +22,7 @@ blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/"]
 @client.event
 async def on_ready():
     print("I have launched with {0.user}".format(client))
+    youtube.checkforVideos.start(client)
 
 
 #Function to check for a message
@@ -108,8 +110,7 @@ async def on_member_join(member):
 @client.event
 async def on_member_remove(member):
     await onMemberLeave(member, client)
-
-
+  
 #client.run to run the bot with the secret token
 #Also check if the request limit has reached anf if so restart the bot
 keep_alive()

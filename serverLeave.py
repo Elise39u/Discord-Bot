@@ -1,5 +1,4 @@
 import random
-import discord
 import EmbedBuilder
 
 embedLeaveUrls = ["http://24.media.tumblr.com/5f8223ae07c725cea7a77be14c45a55d/tumblr_mlor7isREZ1s96b9jo1_500.gif", "https://data.whicdn.com/images/104730073/original.gif", "https://cdn75.picsart.com/185243629000202.gif?to=min&r=640", "https://cdn.discordapp.com/attachments/757611689003974779/861351458824781875/ezgif-6-00b29df6c68e.gif", "https://cdn.discordapp.com/attachments/757611689003974779/861351473162223656/ezgifmaker.gif", "https://i.pinimg.com/originals/d4/19/73/d419735eb285e55e0a38093683fb3503.gif", "https://cdn.discordapp.com/attachments/757611689003974779/861351713444331550/Hibana.gif"]

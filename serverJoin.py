@@ -1,5 +1,4 @@
 import random
-import discord
 import EmbedBuilder
 
 embedWelcomeURLS = ["https://i.kym-cdn.com/photos/images/original/001/236/970/0f1.gif", "https://cdn.discordapp.com/attachments/757611689003974779/861329033756672030/LTWB_Micrystal.gif", "https://cdn.discordapp.com/attachments/757611689003974779/861329293066108936/2ffuym.gif", "https://cdn.discordapp.com/attachments/757611689003974779/861329462636183602/ezgif.com-gif-maker_3.gif" ,"https://cdn.discordapp.com/attachments/757611689003974779/861329538398552084/ezgif-3-f1b581708e09.gif", "https://media.tenor.com/images/7452b9709e58ee148807ca1637ea308d/tenor.gif"]
