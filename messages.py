@@ -9,7 +9,7 @@ async def onHelpMessage(message):
     )
     await EmbedBuilder.BuildEmbed(
         message, "I found my commands. *Whistele noises*",
-        "We have the following commands but first its good to know my prefix is 39M!. Most commands are also case senstive so be aware \n 🎀 39M!Help --> Show this message \n 🎀 39M!Hello --> Says hello to you \n 🎀 39M!Joke --> Gets you a random dad joke \n 🎀 39M!Socials --> See Elise her offical known socials \n 🎀 39M!MyAvatar --> Get your avatar or someones you want *Can only get up to one tag per message* \n 🎀 39M!8Ball --> Get a response from the beloved 8ball *requires a question* \n 🎀 39M!Elise --> *Wanna know what lead up to my transgender choices? Or want to know ho i dealt with some stuff your wondering yourself about?*",
+        "We have the following commands but first its good to know my prefix is 39M!. Most commands are also case senstive so be aware \n 🎀 39M!Help --> Show this message \n 🎀 39M!Hello --> Says hello to you \n 🎀 39M!Joke --> Gets you a random dad joke \n 🎀 39M!Socials --> See Elise her offical known socials \n 🎀 39M!MyAvatar --> Get your avatar or someones you want *Can only get up to one tag per message* \n 🎀 39M!8Ball --> Get a response from the beloved 8ball *requires a question* \n 🎀 39M!Elise --> *Wanna know what lead up to my transgender choices? Or want to know ho i dealt with some stuff your wondering yourself about?* \n 🎀 39M!LMS --> *The LMS tag explained on youtube. Interested make sure to check out.*",
         "https://i.kym-cdn.com/photos/images/original/001/139/222/6b8.gif",
         0xfe3ee4, "🎀 Someone asked for help? 🎀", None, None)
 
@@ -60,11 +60,14 @@ async def BlackListedWords(message, client):
 
 
 async def EliseGenderStory(message):
-    myid = '<@203095887264743424>'
     await EmbedBuilder.BuildEmbed(
         message, "Elise Her Gender Story",
         "Well we all know our beloved juju do we. Well after LMS she got quite some time to think. Oh dindt you know yet? Well its true. Juju now goes by Elise and she started here with it in our vocaloid group. So what happend to lead to her transgender thoughts \n\n So go with Me Hatsune Miku and our new beloved girl Elise on a muscial trip. We explore the past few years and what happend to Elise. We also sing songs from your favourite diva game together after each story. \n\n Well its manily me and Elise but watch the story and also see other of your favourite vocaloids or well mine close friends. We would sing our way across the last few years and give your insight in some decisions. Choices from what lead up to the choice of her trans thoughts and some choices for twitch/yt. \n\n So interested how Elise decided to became a girl. Click the title of the emebed",
-        "https://cdn.discordapp.com/attachments/709057115159003156/948212388925157436/unknown.png",
+        "https://cdn.discordapp.com/attachments/709057115159003156/1005110821837361253/20220805154735_1.jpg",
         "", "🎀 Elise her story 🎀", None,
         "https://www.youtube.com/playlist?list=PLNc-vlTat7viUYY1BuxU1T563gskQpvJJ"
     )
+
+
+async def LMSStory(message):
+  await EmbedBuilder.BuildEmbed(message, "Luka missing story", "A fan fiction story about our beloved Girl Juju and her friend Hatsune Miku. Read through the story on how 2 girls waited one day on her friend luka. But she never seemed to appear at the place they were suppose to meet. \n\n Go on with Miku, Juju and  much more of their vocaloid friends on a musical tour. Watch as Juju and Miku travel across the world to find their missing friend luka. Go with the 2 as the travel and sing songs from your favourite diva games. \n\n Juju never sung before in her life. Can Miku teach her new friend to sing and be an artist. Or does the story have some weird and loving twits. Or does Juju really transform into a true artist girl? \n\n Find out by clicking on the title", "https://cdn.discordapp.com/attachments/709057115159003156/1005109230610694264/20220805144557_1.jpg", None, "🎀 LMS on youtube 🎀", None, "https://www.youtube.com/playlist?list=PLNc-vlTat7vhdoo6Zg6tL7VcMibwc74w6")

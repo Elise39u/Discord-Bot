@@ -59,6 +59,9 @@ async def on_message(message):
     if message.content.startswith('39M!Elise'):
         await messages.EliseGenderStory(message)
 
+    if message.content.startswith('39M!LMS'):
+        await messages.LMSStory(message)
+
     if message.content.startswith('39M!MyAvatar'):
         if (len(message.mentions) == 1):
             await messages.GetAvatar(message, message.mentions[0])
