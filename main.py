@@ -70,11 +70,6 @@ async def on_message(message):
         else:
             await messages.GetAvatar(message, message.author)
 
-    if message.author.id == 204255221017214977 and message.channel.id == 749939669210366022:
-        await message.channel.send(
-            "<@&934500064364216390> <@203095887264743424> Has upload a video. Only i cant tell what excatly thanks to discord <3"
-        )
-
     if message.content.startswith('39M!8Ball') and len(message.content) > 11:
         await messages.EightBallResponse(message)
     elif message.content.startswith('39M!8Ball') and len(message.content) < 11:

@@ -54,6 +54,14 @@ async def checkforVideos(client):
             vidTitle = "<@&934500064364216390> <@203095887264743424> has uploaded a Project diva video go check it out 💜"
             embedTitle = "Project diva video"
             embedDescription = "🎀 Elise has uploaded a new project diva video. Care to see if she got a perfect or got a new divaroadmap. See what happends by checking the title of the embed 🎀"
+          elif("Megamix" in data["title"] or "AFT" in data["title"] or "Diva" in data["title"] or "Future tone" in data["title"]):
+            vidTitle = " 🎀 <@&934500064364216390> <@203095887264743424> has uploaded a recent project diva stream to her vods channel 🎀"
+            embedTitle = "Miku/Project Diva stream"
+            embedDescription = "🎀 Elise recently streamed a project diva game to her twitch. After downloading and maby a little bit editing. Its finally uploaded to her vods channel. Interested to see what happends on a stream click the title of the embed 🎀"
+          elif("Stream" in data["title"]):
+            vidTitle = " 🎀 <@&934500064364216390> <@203095887264743424> has uploaded a reccent stream to her vods channel 🎀"
+            embedTitle = "Recent twitch stream"
+            embedDescription = "🎀 Elise recently streamed something because sometimes it hard to tell what. Well here i see a upload so. After downloading and maby a little bit editing. Its finally uploaded to her vods channel. Interested to see what happends on a stream click the title of the embed 🎀"
           else:
             vidTitle = "<@&934500064364216390> <@203095887264743424> has uploaded a lets play video. Go check it out 💜"
             embedTitle = "Lets play video"
