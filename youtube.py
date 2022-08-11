@@ -4,6 +4,7 @@ import re
 import urllib
 import urllib.request
 import EmbedBuilder
+import discord
 from discord.ext import tasks
 
 @tasks.loop(seconds=60)
@@ -13,7 +14,7 @@ async def checkforVideos(client):
 
     for youtube_channel in data:
       channel = f"https://www.youtube.com/channel/{youtube_channel}"
-
+    
       #getting html of the /videos page
       html = requests.get(channel+"/videos").text
 
@@ -28,7 +29,7 @@ async def checkforVideos(client):
         latest_video_url = "https://www.youtube.com/watch?v=" + re.search('(?<="videoId":").*?(?=")', html).group()
       except:
         continue
- 
+
       if not str(data[youtube_channel]["latest_video_url"]) == latest_video_url:
         
         #chaning the last video url
@@ -40,7 +41,7 @@ async def checkforVideos(client):
 
         discord_channel_id = data[str(youtube_channel)]['notifying_discord_channel']
         discord_channel = client.get_channel(int(discord_channel_id))
-
+        
         vidId = re.search('(?<="videoId":").*?(?=")', html).group()
         parmas = {"format": "json", "url": latest_video_url}
         url = "https://www.youtube.com/oembed"
@@ -49,16 +50,20 @@ async def checkforVideos(client):
         
         with urllib.request.urlopen(url) as response:
           response_text = response.read()
-          data = json.loads(response_text.decode())
-          if("Perfect" in data['title'] or "Divaroadmap" in data["title"]):
+          youtubeVidData = json.loads(response_text.decode())
+          if("EGS" in youtubeVidData["title"]):
+            vidTitle = " 🎀 <@&934500064364216390> <@203095887264743424> has upload a Gender story in the form of a project diva video 💜🎀"
+            embedTitle = "EGS Story video"
+            embedDescription = "🎀 Elise would love to have an open community in where you can discuss either things from gender thoughts to things about who you think your like on sexual thoght. **PLEASE MIND WE MEAN IF YOU LIKE BOYS OR GIRL OR BOTH** So by stepping up as the first to talk she hopes to maby give someone to courrage to talk or gives ideas. See how Elise dealt with some stuff in her transgender life. Check out by clicking on the title above 🎀"
+          elif("Perfect" in youtubeVidData['title'] or "Divaroadmap" in youtubeVidData["title"]):
             vidTitle = "<@&934500064364216390> <@203095887264743424> has uploaded a Project diva video go check it out 💜"
             embedTitle = "Project diva video"
             embedDescription = "🎀 Elise has uploaded a new project diva video. Care to see if she got a perfect or got a new divaroadmap. See what happends by checking the title of the embed 🎀"
-          elif("Megamix" in data["title"] or "AFT" in data["title"] or "Diva" in data["title"] or "Future tone" in data["title"]):
+          elif("Megamix" in youtubeVidData["title"] or "AFT" in youtubeVidData["title"] or "Diva" in youtubeVidData["title"] or "Future tone" in youtubeVidData["title"]):
             vidTitle = " 🎀 <@&934500064364216390> <@203095887264743424> has uploaded a recent project diva stream to her vods channel 🎀"
             embedTitle = "Miku/Project Diva stream"
             embedDescription = "🎀 Elise recently streamed a project diva game to her twitch. After downloading and maby a little bit editing. Its finally uploaded to her vods channel. Interested to see what happends on a stream click the title of the embed 🎀"
-          elif("Stream" in data["title"]):
+          elif("Stream" in youtubeVidData["title"]):
             vidTitle = " 🎀 <@&934500064364216390> <@203095887264743424> has uploaded a reccent stream to her vods channel 🎀"
             embedTitle = "Recent twitch stream"
             embedDescription = "🎀 Elise recently streamed something because sometimes it hard to tell what. Well here i see a upload so. After downloading and maby a little bit editing. Its finally uploaded to her vods channel. Interested to see what happends on a stream click the title of the embed 🎀"
