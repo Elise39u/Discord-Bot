@@ -51,7 +51,11 @@ async def checkforVideos(client):
         with urllib.request.urlopen(url) as response:
           response_text = response.read()
           youtubeVidData = json.loads(response_text.decode())
-          if("EGS" in youtubeVidData["title"]):
+          if("Cover" in youtubeVidData["title"]):
+            vidTitle = " 🎀 <@&934500064364216390> <@203095887264743424> Uploaded a new english cover to her Channel 💜🎀"
+            embedTitle = "New English cover "
+            embedDescription = "🎀 You know that Miku trys to teach Elise to sing from time to time. How do we test if Elise can sing well a v-singer carreer. My sources tell me they practied a Vocaloid song and gave it an English jacket. Care what Elise sung this time? Click the title of the embed and check out 🎀"
+          elif("EGS" in youtubeVidData["title"]):
             vidTitle = " 🎀 <@&934500064364216390> <@203095887264743424> has upload a Gender story in the form of a project diva video 💜🎀"
             embedTitle = "EGS Story video"
             embedDescription = "🎀 Elise would love to have an open community in where you can discuss either things from gender thoughts to things about who you think your like on sexual thoght. **PLEASE MIND WE MEAN IF YOU LIKE BOYS OR GIRL OR BOTH** So by stepping up as the first to talk she hopes to maby give someone to courrage to talk or gives ideas. See how Elise dealt with some stuff in her transgender life. Check out by clicking on the title above 🎀"
