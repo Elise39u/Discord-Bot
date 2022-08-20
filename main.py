@@ -11,8 +11,8 @@ import youtube
 
 intents = discord.Intents.default()
 intents.members = True
-activity = discord.Activity(type=discord.ActivityType.listening,
-                            name="Hello Worker by Elise")
+activity = discord.Activity(type=discord.ActivityType.watching,
+                            name="School Sekai")
 my_secret = os.environ['TOKEN']
 client = discord.Client(intents=intents, activity=activity)
 blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/"]
