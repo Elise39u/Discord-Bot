@@ -1,3 +1,6 @@
+#on_message_edit (discord python)
+#on_message_delete (discord python)
+
 import os
 import discord
 from server_ import keep_alive
@@ -11,6 +14,8 @@ import youtube
 
 intents = discord.Intents.default()
 intents.members = True
+intents.reactions = True
+intents.messages = True
 activity = discord.Activity(type=discord.ActivityType.watching,
                             name="School Sekai")
 my_secret = os.environ['TOKEN']
@@ -25,6 +30,51 @@ async def on_ready():
     youtube.checkforVideos.start(client)
 
 
+@client.event
+async def on_reaction_add(reaction, member):
+  if member != client.user:
+    if str(reaction.emoji == "🎵"):
+      role = member.guild.get_role(1010980678998949938)
+      await member.add_roles(role)
+    if str(reaction.emoji == "<:Cool:879363827693666314>"):
+      role = member.guild.get_role(1010980219038990387)
+      await member.add_roles(role)
+    if str(reaction.emoji == "<:Cute:879363818982084618>"):
+      role = member.guild.get_role(1010981513849995425)
+      await member.add_roles(role)
+    if str(reaction.emoji == "<:Elegant:879363845313933332>"):
+      role = member.guild.get_role(1010981914104041572)
+      await member.add_roles(role)
+    if str(reaction.emoji == "<:Quirky:879363983658868766>"):
+      role = member.guild.get_role(1010982791623745606)
+      await member.add_roles(role)
+    if str(reaction.emoji == "<:Classic:879363519110340638>"):
+      role = member.guild.get_role(1010983272806883399)
+      await member.add_roles(role)
+      
+@client.event
+async def on_reaction_remove(reaction, member):
+  if member != client.user:
+    if str(reaction.emoji == "🎵"):
+      role = member.guild.get_role(1010980678998949938)
+      await member.remove_roles(role)
+    if str(reaction.emoji == "<:Cool:879363827693666314>"):
+      role = member.guild.get_role(1010980219038990387)
+      await member.remove_roles(role)
+    if str(reaction.emoji == "<:Cute:879363818982084618>"):
+      role = member.guild.get_role(1010981513849995425)
+      await member.remove_roles(role)
+    if str(reaction.emoji == "<:Elegant:879363845313933332>"):
+      role = member.guild.get_role(1010981914104041572)
+      await member.remove_roles(role)
+    if str(reaction.emoji == "<:Quirky:879363983658868766>"):
+      role = member.guild.get_role(1010982791623745606)
+      await member.remove_roles(role)
+    if str(reaction.emoji == "<:Classic:879363519110340638>"):
+      role = member.guild.get_role(1010983272806883399)
+      await member.remove_roles(role)
+      
+        
 #Function to check for a message
 #The on_message function can take a argument
 @client.event
