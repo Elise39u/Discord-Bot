@@ -32,45 +32,47 @@ async def on_ready():
 
 @client.event
 async def on_reaction_add(reaction, member):
+  Guild = client.get_guild(699557641818734634)
+  
   if member != client.user:
-    if str(reaction.emoji == "🎵"):
-      role = member.guild.get_role(1010980678998949938)
+    if reaction.emoji == "\U0001F3B5":
+      role = Guild.get_role(1010980678998949938)
       await member.add_roles(role)
-    if str(reaction.emoji == "<:Cool:879363827693666314>"):
-      role = member.guild.get_role(1010980219038990387)
+    if reaction.emoji == "\U0001F3B8":
+      role = Guild.get_role(1010980219038990387)
       await member.add_roles(role)
-    if str(reaction.emoji == "<:Cute:879363818982084618>"):
-      role = member.guild.get_role(1010981513849995425)
+    if reaction.emoji == "\U0001F3BC":
+      role = Guild.get_role(1010981513849995425)
       await member.add_roles(role)
-    if str(reaction.emoji == "<:Elegant:879363845313933332>"):
-      role = member.guild.get_role(1010981914104041572)
+    if reaction.emoji == "\U00002615":
+      role = Guild.get_role(1010981914104041572)
       await member.add_roles(role)
-    if str(reaction.emoji == "<:Quirky:879363983658868766>"):
-      role = member.guild.get_role(1010982791623745606)
+    if reaction.emoji == "\U0001F3A1":
+      role = Guild.get_role(1010982791623745606)
       await member.add_roles(role)
-    if str(reaction.emoji == "<:Classic:879363519110340638>"):
-      role = member.guild.get_role(1010983272806883399)
+    if reaction.emoji == "\U0001F4BB":
+      role = Guild.get_role(1010983272806883399)
       await member.add_roles(role)
       
 @client.event
 async def on_reaction_remove(reaction, member):
   if member != client.user:
-    if str(reaction.emoji == "🎵"):
+    if reaction.emoji == "\U0001F3B5":
       role = member.guild.get_role(1010980678998949938)
       await member.remove_roles(role)
-    if str(reaction.emoji == "<:Cool:879363827693666314>"):
+    if reaction.emoji == "\U0001F3B8":
       role = member.guild.get_role(1010980219038990387)
       await member.remove_roles(role)
-    if str(reaction.emoji == "<:Cute:879363818982084618>"):
+    if reaction.emoji == "\U0001F3BC":
       role = member.guild.get_role(1010981513849995425)
       await member.remove_roles(role)
-    if str(reaction.emoji == "<:Elegant:879363845313933332>"):
+    if reaction.emoji == "\U00002615":
       role = member.guild.get_role(1010981914104041572)
       await member.remove_roles(role)
-    if str(reaction.emoji == "<:Quirky:879363983658868766>"):
+    if reaction.emoji == "\U0001F3A1":
       role = member.guild.get_role(1010982791623745606)
       await member.remove_roles(role)
-    if str(reaction.emoji == "<:Classic:879363519110340638>"):
+    if reaction.emoji == "\U0001F4BB":
       role = member.guild.get_role(1010983272806883399)
       await member.remove_roles(role)
       
