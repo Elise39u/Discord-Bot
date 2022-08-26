@@ -17,6 +17,7 @@ async def give_role_menu(client, message, member):
     reaction = await client.wait_for('reaction_add', timeout=30.0)
     await giveUserRole(message, client, member, reaction, roleMessage)
   except asyncio.TimeoutError:
+    await roleMessage.delete()
     await message.channel.send("**30 seconds** has passed and i dindt saw a emoji reaction")
 
 async def giveUserRole(message, client, member, reaction, roleMessage):
