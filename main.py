@@ -11,6 +11,7 @@ from Jokes import onJoke
 import messages
 import moderation
 import youtube
+import roles
 
 intents = discord.Intents.default()
 intents.members = True
@@ -20,7 +21,7 @@ activity = discord.Activity(type=discord.ActivityType.watching,
                             name="School Sekai")
 my_secret = os.environ['TOKEN']
 client = discord.Client(intents=intents, activity=activity)
-blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/"]
+blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/", "https://divamodarchive.xyz/", "divamodarchive", "brogamer", "pdm2", "modding2nd"]
 
 
 #Register an event and define when the bot is ready to use
@@ -28,55 +29,7 @@ blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/"]
 async def on_ready():
     print("I have launched with {0.user}".format(client))
     youtube.checkforVideos.start(client)
-
-
-@client.event
-async def on_reaction_add(reaction, member):
-  Guild = client.get_guild(699557641818734634)
   
-  if member != client.user:
-    if reaction.emoji == "\U0001F3B5":
-      role = Guild.get_role(1010980678998949938)
-      await member.add_roles(role)
-    if reaction.emoji == "\U0001F3B8":
-      role = Guild.get_role(1010980219038990387)
-      await member.add_roles(role)
-    if reaction.emoji == "\U0001F3BC":
-      role = Guild.get_role(1010981513849995425)
-      await member.add_roles(role)
-    if reaction.emoji == "\U00002615":
-      role = Guild.get_role(1010981914104041572)
-      await member.add_roles(role)
-    if reaction.emoji == "\U0001F3A1":
-      role = Guild.get_role(1010982791623745606)
-      await member.add_roles(role)
-    if reaction.emoji == "\U0001F4BB":
-      role = Guild.get_role(1010983272806883399)
-      await member.add_roles(role)
-      
-@client.event
-async def on_reaction_remove(reaction, member):
-  if member != client.user:
-    if reaction.emoji == "\U0001F3B5":
-      role = member.guild.get_role(1010980678998949938)
-      await member.remove_roles(role)
-    if reaction.emoji == "\U0001F3B8":
-      role = member.guild.get_role(1010980219038990387)
-      await member.remove_roles(role)
-    if reaction.emoji == "\U0001F3BC":
-      role = member.guild.get_role(1010981513849995425)
-      await member.remove_roles(role)
-    if reaction.emoji == "\U00002615":
-      role = member.guild.get_role(1010981914104041572)
-      await member.remove_roles(role)
-    if reaction.emoji == "\U0001F3A1":
-      role = member.guild.get_role(1010982791623745606)
-      await member.remove_roles(role)
-    if reaction.emoji == "\U0001F4BB":
-      role = member.guild.get_role(1010983272806883399)
-      await member.remove_roles(role)
-      
-        
 #Function to check for a message
 #The on_message function can take a argument
 @client.event
@@ -101,6 +54,10 @@ async def on_message(message):
             "Hello there im Big debut miku can i help you with something? {0.author.display_name}"
             .format(message))
 
+    if message.content.startswith('39M!Roles'):
+      await message.delete()
+      await roles.give_role_menu(client, message, message.author)
+      
     if message.content.startswith('39M!Socials'):
         await onSocialsMessage(message)
 
