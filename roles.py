@@ -18,7 +18,7 @@ async def give_role_menu(client, message, member):
     await giveUserRole(message, client, member, reaction, roleMessage)
   except asyncio.TimeoutError:
     await roleMessage.delete()
-    await message.channel.send("**30 seconds** has passed and i dindt saw a emoji reaction")
+    await message.channel.send(f"**30 seconds** has passed and i dindt saw a emoji reaction {message.author.display_name}")
 
 async def giveUserRole(message, client, member, reaction, roleMessage):
   Guild = client.get_guild(699557641818734634)
@@ -50,7 +50,7 @@ async def checkRoleState(role, member, message):
 
   if roleCheck == False:
     await member.add_roles(role)
-    await message.channel.send(f"{member.name} i have given you the following role: {role.name}")
+    await message.channel.send(f"{member.display_name} i have given you the following role: {role.name}")
   else:
     await member.remove_roles(role)
-    await message.channel.send(f"{member.name} i have removed the following role: {role.name}")
+    await message.channel.send(f"{member.display_name} i have removed the following role: {role.name}")

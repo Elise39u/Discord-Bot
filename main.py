@@ -18,7 +18,7 @@ intents.members = True
 intents.reactions = True
 intents.messages = True
 activity = discord.Activity(type=discord.ActivityType.watching,
-                            name="School Sekai")
+                            name="Wonderland Sekai")
 my_secret = os.environ['TOKEN']
 client = discord.Client(intents=intents, activity=activity)
 blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/", "https://divamodarchive.xyz/", "divamodarchive", "brogamer", "pdm2", "modding2nd"]
@@ -57,6 +57,10 @@ async def on_message(message):
     if message.content.startswith('39M!Roles'):
       await message.delete()
       await roles.give_role_menu(client, message, message.author)
+
+    if message.content.startswith('39M!108'):
+      await message.delete()
+      await message.channel.send(f'{message.author.name} you want to know the secrets of project diva. Here you go https://108memo.jp/en/')
       
     if message.content.startswith('39M!Socials'):
         await onSocialsMessage(message)
