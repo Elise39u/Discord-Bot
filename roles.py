@@ -1,14 +1,14 @@
 import asyncio
 
 async def give_role_menu(client, message, member):
-  roleMessage = await message.channel.send(f"""{member.name} Welcome we have the following roles  for you. They give a nice color and are based on the Sekai themed game 
+  roleMessage = await message.channel.send(f"""{member.display_name} Welcome we have the following roles  for you. They give a nice color and are based on the Sekai themed game 
   
-  (🎵) Virtual Siner \n
-  (🎸) Leo/Need \n
-  (🎼) More More Jump \n
-  (☕) Vivid Bad Squad \n
-  (🎡) Wonderland X Showtime \n
-  (💻) NightCord 25:00
+  (🎵) Virtual Siner --> Teal \n 
+  (🎸) Leo/Need --> Dark Blue \n
+  (🎼) More More Jump --> Darker YellowGreen \n
+  (☕) Vivid Bad Squad --> Magenta colored \n
+  (🎡) Wonderland X Showtime --> Orange \n
+  (💻) NightCord 25:00 --> Purple
 
   Please respond with the correct emote for the correct role. **You have 30sec and the top role wil be your color role**
   """)
@@ -18,7 +18,7 @@ async def give_role_menu(client, message, member):
     await giveUserRole(message, client, member, reaction, roleMessage)
   except asyncio.TimeoutError:
     await roleMessage.delete()
-    await message.channel.send(f"**30 seconds** has passed and i dindt saw a emoji reaction {message.author.display_name}")
+    await message.channel.send(f"**30 seconds** has passed and i dindt saw a emoji reaction **{message.author.display_name}**")
 
 async def giveUserRole(message, client, member, reaction, roleMessage):
   Guild = client.get_guild(699557641818734634)
