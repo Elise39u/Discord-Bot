@@ -1,4 +1,3 @@
-#on_message_delete (discord python)
 #command that chosen a random vocaloid and says X is the best
 
 import os
@@ -33,6 +32,13 @@ async def on_ready():
 @client.event
 async def on_message_edit(beforeMessage, afterMessage):
   await moderation.UpdatedMessage(client, beforeMessage, afterMessage)
+
+@client.event
+async def on_message_delete(message):
+  if message.author == client.user or "39M!" in message.content:
+    return
+  else:
+    await moderation.DeleteMessage(message, client)
 
 #Function to check for a message
 #The on_message function can take a argument

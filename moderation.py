@@ -40,9 +40,23 @@ async def ErrorMessage(message, description, reason, user):
   await message.channel.send(content=None, embed=embed)
 
 async def UpdatedMessage(client, beforeMessage, afterMessage):
-  updateEmbed = discord.Embed(title=f"A message has been updated by {beforeMessage.author.display_name} ", description=f"Message before was: **{beforeMessage.content}** \n New update message is: **{afterMessage.content}**")
+  member = beforeMessage.author
+  
+  updateEmbed = discord.Embed(title="I saw someone updated their message", description=f"Message before was: **{beforeMessage.content}** \n New update message is: **{afterMessage.content}**")
   updateEmbed.add_field(name="**channel link**", value=f"{beforeMessage.jump_url}", inline=True)
-  updateEmbed.set_author(name=f"{beforeMessage.author.display_name}")
+  updateEmbed.set_author(name=f"{beforeMessage.author.display_name}", icon_url=member.avatar_url)
 
   channel = client.get_channel(822837640872067082)
+  
   await channel.send(embed=updateEmbed)
+
+async def DeleteMessage(message, client):
+  member = message.author
+
+  deletedEmbed = discord.Embed(title="A message has been deleted", description=f"{member.display_name} has deleted **{message.content}**")       
+  deletedEmbed.add_field(name="**channel link**", value=f"{message.jump_url}", inline=True)
+  deletedEmbed.set_author(name=f"{member.display_name}", icon_url=member.avatar_url)
+  
+  channel = client.get_channel(822837640872067082)
+  
+  await channel.send(embed=deletedEmbed)
