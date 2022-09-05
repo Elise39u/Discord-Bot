@@ -56,7 +56,7 @@ async def on_message(message):
     #Check of the messages starts with 39!M and then await a sendback depending on the message command
     if message.content.startswith('39M!Hello'):
         await message.channel.send(
-            "Hello there im Big debut miku can i help you with something? {0.author.display_name}"
+            "Hello there i`m Hatsune miku can i help you with something? {0.author.display_name} \nI suggested if you want to know what i can do by using 39M!Help \nOther wise feel free to look around here in the sekai world"
             .format(message))
 
     if message.content.startswith('39M!Woah'):
