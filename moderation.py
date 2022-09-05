@@ -38,3 +38,11 @@ async def ErrorMessage(message, description, reason, user):
   embed.colour = 0xfe3ee4
   embed.set_footer(text="Error: " + user.display_name)
   await message.channel.send(content=None, embed=embed)
+
+async def UpdatedMessage(client, beforeMessage, afterMessage):
+  updateEmbed = discord.Embed(title=f"A message has been updated by {beforeMessage.author.display_name} ", description=f"Message before was: **{beforeMessage.content}** \n New update message is: **{afterMessage.content}**")
+  updateEmbed.add_field(name="**channel link**", value=f"{beforeMessage.jump_url}", inline=True)
+  updateEmbed.set_author(name=f"{beforeMessage.author.display_name}")
+
+  channel = client.get_channel(822837640872067082)
+  await channel.send(embed=updateEmbed)

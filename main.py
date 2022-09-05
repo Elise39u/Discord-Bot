@@ -1,5 +1,5 @@
-#on_message_edit (discord python)
 #on_message_delete (discord python)
+#command that chosen a random vocaloid and says X is the best
 
 import os
 import discord
@@ -18,7 +18,7 @@ intents.members = True
 intents.reactions = True
 intents.messages = True
 activity = discord.Activity(type=discord.ActivityType.watching,
-                            name="Wonderland Sekai")
+                            name="The streets sekai with Elise")
 my_secret = os.environ['TOKEN']
 client = discord.Client(intents=intents, activity=activity)
 blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/", "https://divamodarchive.xyz/", "divamodarchive", "brogamer", "pdm2", "modding2nd"]
@@ -29,7 +29,11 @@ blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/", "https://d
 async def on_ready():
     print("I have launched with {0.user}".format(client))
     youtube.checkforVideos.start(client)
-  
+
+@client.event
+async def on_message_edit(beforeMessage, afterMessage):
+  await moderation.UpdatedMessage(client, beforeMessage, afterMessage)
+
 #Function to check for a message
 #The on_message function can take a argument
 @client.event
@@ -43,6 +47,7 @@ async def on_message(message):
                 roleCheck = moderation.checkOwnerRoles(message, False)
                 if (roleCheck == False):
                     await message.delete()
+                    await message.channel.send('https://cdn.discordapp.com/attachments/997798399728418867/997798441004568597/unknown.png')
                     await message.channel.send(
                         "{0.author.mention} You said a blacklisted word".
                         format(message))
@@ -54,6 +59,10 @@ async def on_message(message):
             "Hello there im Big debut miku can i help you with something? {0.author.display_name}"
             .format(message))
 
+    if message.content.startswith('39M!Woah'):
+      await message.delete()
+      await message.channel.send('https://cdn.discordapp.com/attachments/997798399728418867/997798441004568597/unknown.png')
+      
     if message.content.startswith('39M!Roles'):
       await message.delete()
       await roles.give_role_menu(client, message, message.author)
