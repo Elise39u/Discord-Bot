@@ -27,7 +27,7 @@ def checkOwnerRoles(message, boolean):
   
 def checkAdminRole(member, boolean):
   for userRole in member.roles:
-   if userRole.name == 'Vocaloids' or userRole.name == 'Managers' or userRole.name == 'Big Debut Miku': 
+   if userRole.name == 'Vocaloids' or userRole.name == 'Managers' or userRole.name == 'Sekai Miku Bot': 
      boolean = True
      break;
   return boolean
