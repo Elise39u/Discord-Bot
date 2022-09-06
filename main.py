@@ -20,7 +20,7 @@ activity = discord.Activity(type=discord.ActivityType.watching,
                             name="The streets sekai with Elise")
 my_secret = os.environ['TOKEN']
 client = discord.Client(intents=intents, activity=activity)
-blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/", "https://divamodarchive.xyz/", "divamodarchive", "brogamer", "pdm2", "modding2nd"]
+blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/"]
 
 
 #Register an event and define when the bot is ready to use
@@ -49,7 +49,7 @@ async def on_message(message):
 
     if len(message.content) > 0:
         for word in blackListedWords:
-            if word in message.content:
+            if word in message.content.lower():
                 roleCheck = moderation.checkOwnerRoles(message, False)
                 if (roleCheck == False):
                     await message.delete()
