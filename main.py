@@ -1,5 +1,3 @@
-#command that chosen a random vocaloid and says X is the best
-
 import os
 import discord
 from server_ import keep_alive
@@ -64,6 +62,9 @@ async def on_message(message):
         await message.channel.send(
             "Hello there i`m Hatsune miku can i help you with something? {0.author.display_name} \nI suggested if you want to know what i can do by using 39M!Help \nOther wise feel free to look around here in the sekai world"
             .format(message))
+
+    if message.content.startswith('39M!Vocaloid'):
+      await messages.RandomVocaloid(message)
 
     if message.content.startswith('39M!Woah'):
       await message.delete()

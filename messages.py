@@ -24,7 +24,21 @@ async def GetAvatar(message, member):
         "I found the following avatar for you", member.avatar_url, 0xfe3ee4,
         "🎀 Pictures Left and right? 🎀", None, None)
 
+async def RandomVocaloid(message):
+  vocaloidChoice = [
+    "Hatsune Miku",
+    "Megurine Luka",
+    "Kagamine Rin",
+    "Kagamine Len",
+    "Meiko",
+    "Kaito",
+    "Gumi",
+    "IA"
+  ]
+  randomChoice = [" Is the best for sure <3", " Is the worst sorry", " Well i dont know about this one"]
 
+  await message.channel.send(random.choice(vocaloidChoice) + random.choice(randomChoice) + f" {message.author.display_name}")
+  
 async def EightBallResponse(message):
     response = [
         "🎱 8ball said you should rethink that one chief",

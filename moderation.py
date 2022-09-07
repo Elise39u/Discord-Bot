@@ -1,7 +1,7 @@
 import discord
 
 async def OnKick(message, client):
-  message_array = message.content[28:]
+  message_array = message.content
   user = await client.fetch_user(message.mentions[0].id)
   await message.guild.kick(user, reason=message_array[2])
   await message.channel.send(f'{user} has been kicked for {message_array}')
