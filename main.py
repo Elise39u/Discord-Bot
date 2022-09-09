@@ -74,6 +74,12 @@ async def on_message(message):
       await message.delete()
       await roles.give_role_menu(client, message, message.author)
 
+    if message.content.startswith('39M!ThemeSong'):
+      await message.channel.send("Want to know what song describes my life the best? \nWell lets says that doning the cosplays streams transformed into a rather weird person.\nI often had friends ask me:\nElise are you Hatsune Miku?, Is Hatsune miku you alter ego?. How fun it would look but nope\nI mean also you guys called me at a point Hatsune Miku or Hatsune juju\n\nSo that is why i say As long i can put a smile on your face as Hatsune miku.\nI will be Hatsune miku for you guys and girls!\n https://www.youtube.com/watch?v=ygY2qObZv24")
+
+    if message.content.startswith('39M!Name'):
+      await message.channel.send("So you want to know how i oringally got the name Hatsune juju?\nWell its one given by my friends from bening such a Miku lover.\nAt first i dindt took the name because it felt weird to be named with the same name as your idol.\n\nOnly at a point i asked you guys and you all seemed to want me to do it.\nSo thats how i became Hatsune Juju")
+      
     if message.content.startswith('39M!108'):
       await message.delete()
       await message.channel.send(f'{message.author.name} you want to know the secrets of project diva. Here you go https://108memo.jp/en/')
