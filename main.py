@@ -1,10 +1,10 @@
 import os
 import discord
-from server_ import keep_alive
 from serverJoin import onMemberJoin
 from serverLeave import onMemberLeave
 from socials import onSocialsMessage
 from Jokes import onJoke
+from server_ import keep_alive
 import messages
 import moderation
 import youtube
@@ -75,7 +75,7 @@ async def on_message(message):
       await roles.give_role_menu(client, message, message.author)
 
     if message.content.startswith('39M!ThemeSong'):
-      await message.channel.send("Want to know what song describes my life the best? \nWell lets says that doning the cosplays streams transformed into a rather weird person.\nI often had friends ask me:\nElise are you Hatsune Miku?, Is Hatsune miku you alter ego?. How fun it would look but nope\nI mean also you guys called me at a point Hatsune Miku or Hatsune juju\n\nSo that is why i say As long i can put a smile on your face as Hatsune miku.\nI will be Hatsune miku for you guys and girls!\n https://www.youtube.com/watch?v=ygY2qObZv24")
+      await message.channel.send("Want to know what song describes my life the best? \nWell lets says that doning the cosplays streams transformed into a rather weird person.\nI often had friends ask me:\nElise are you Hatsune Miku?, Is Hatsune miku you alter ego?. How fun it would look but nope\nI mean also you guys called me at a point Hatsune Miku or Hatsune juju\n\nSo that is why i say As long i can put a smile on your face as Hatsune miku.\nI will be forever and ever, From here Hatsune miku 💜!\nhttps://www.youtube.com/watch?v=ygY2qObZv24")
 
     if message.content.startswith('39M!Name'):
       await message.channel.send("So you want to know how i oringally got the name Hatsune juju?\nWell its one given by my friends from bening such a Miku lover.\nAt first i dindt took the name because it felt weird to be named with the same name as your idol.\n\nOnly at a point i asked you guys and you all seemed to want me to do it.\nSo thats how i became Hatsune Juju")
@@ -117,9 +117,7 @@ async def on_message(message):
         if (roleCheck):
             imuunRole = moderation.checkAdminRole(message.mentions[0], haha)
             if (imuunRole):
-                await moderation.ErrorMessage(
-                    message,
-                    "An error occured with the 39M!Kick command. Hang om im looking into the issue <:MikuStare:714726830703247362>",
+                await moderation.ErrorMessage("An error occured with the 39M!Kick command. Hang om im looking into the issue <:MikuStare:714726830703247362>",
                     "I cant kick people with the role Vocaloid or Manager or Myself",
                     message.author)
             else:
@@ -145,6 +143,7 @@ async def on_member_remove(member):
 #Also check if the request limit has reached anf if so restart the bot
 keep_alive()
 try:
+    print("at Try statement")
     print(client.run(my_secret))
     client.run(my_secret)
 except:
