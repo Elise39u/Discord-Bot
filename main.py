@@ -145,8 +145,8 @@ async def on_member_remove(member):
 #Also check if the request limit has reached anf if so restart the bot
 keep_alive()
 try:
-    print(client.run(my_secret))
     client.run(my_secret)
 except:
     print("at except")
     os.system("kill 1")
+    client.run(my_secret)
