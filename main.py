@@ -14,8 +14,8 @@ intents = discord.Intents.default()
 intents.members = True
 intents.reactions = True
 intents.messages = True
-activity = discord.Activity(type=discord.ActivityType.watching,
-                            name="The streets sekai with Elise")
+activity = discord.Activity(type=discord.ActivityType.playing,
+                            name="With Elise in the school Sekai")
 my_secret = os.environ['TOKEN']
 client = discord.Client(intents=intents, activity=activity)
 blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/"]

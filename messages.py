@@ -26,18 +26,19 @@ async def GetAvatar(message, member):
 
 async def RandomVocaloid(message):
   vocaloidChoice = [
-    "Hatsune Miku",
-    "Megurine Luka",
-    "Kagamine Rin",
-    "Kagamine Len",
-    "Meiko",
-    "Kaito",
-    "Gumi",
-    "IA"
+    "<:MikuStare:714726830703247362> Hatsune Miku",
+    "<:LukaStare:813132474082525215> Megurine Luka",
+    "<:RinStare:816647976129921082> Kagamine Rin",
+    "<:LenStare:878744221501227018> Kagamine Len",
+    "<:MeikoStare:816647748135682058> Meiko",
+    "<:KaitoStare:878744250207055892> Kaito",
+    "<:GumiStare:816647571216007178> Gumi",
+    "<:IaStare:813132456315322399> IA"
   ]
-  randomChoice = [" Is the best for sure <3", " Is the worst sorry", " Well i dont know about this one"]
+  randomChoice = ["Is the best for sure <3", "Is the worst sorry", "Well i dont know about this vocaloid one"]
 
-  await message.channel.send(random.choice(vocaloidChoice) + random.choice(randomChoice) + f" {message.author.display_name}")
+  await message.channel.send(random.choice(vocaloidChoice))
+  await message.channel.send(random.choice(randomChoice) + f" {message.author.display_name}")
   
 async def EightBallResponse(message):
     response = [
