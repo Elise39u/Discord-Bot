@@ -5,6 +5,7 @@ from serverJoin import onMemberJoin
 from serverLeave import onMemberLeave
 from socials import onSocialsMessage
 from Jokes import onJoke
+from TextToOwO.owo import text_to_owo
 import messages
 import moderation
 import youtube
@@ -18,7 +19,7 @@ activity = discord.Activity(type=discord.ActivityType.playing,
                             name="With Elise in the school Sekai")
 my_secret = os.environ['TOKEN']
 client = discord.Client(intents=intents, activity=activity)
-blackListedWords = ["kanker", "kkr", "cancer", "https://discord.gg/"]
+blackListedWords = ["kanker", "cancer", "https://discord.gg/", "tranny"]
 
 
 #Register an event and define when the bot is ready to use
@@ -110,6 +111,13 @@ async def on_message(message):
     elif message.content.startswith('39M!8Ball') and len(message.content) < 11:
         await message.channel.send(
             "I miss a question {0.author.mention}".format(message))
+
+    if message.content.startswith('39M!OwO') and len(message.content) > 7:
+      await message.delete()
+      await message.channel.send(text_to_owo(message.content[7:]))
+    elif message.content.startswith('39M!OwO') and len(message.content) < 7:
+      await message.delete()
+      await message.channe.send(text_to_owo(f"{message.author} please add a text for me to OWO. Love Miku"))
 
     if message.content.startswith('39M!Kick'):
         haha = False
