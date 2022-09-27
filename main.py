@@ -115,9 +115,9 @@ async def on_message(message):
     if message.content.startswith('39M!OwO') and len(message.content) > 7:
       await message.delete()
       await message.channel.send(text_to_owo(message.content[7:]))
-    elif message.content.startswith('39M!OwO') and len(message.content) < 7:
+    elif message.content.startswith('39M!OwO') and len(message.content) <= 7:
       await message.delete()
-      await message.channe.send(text_to_owo(f"{message.author} please add a text for me to OWO. Love Miku"))
+      await message.channel.send(text_to_owo(f"{message.author.display_name} please add a text for me to OWO. Love Miku"))
 
     if message.content.startswith('39M!Kick'):
         haha = False
