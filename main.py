@@ -43,6 +43,8 @@ async def on_message_delete(message):
 #The on_message function can take a argument
 @client.event
 async def on_message(message):
+    print(message.author)
+    print(message.content)
     if message.author == client.user:
         return
 
@@ -102,9 +104,9 @@ async def on_message(message):
 
     if message.content.startswith('39M!MyAvatar'):
         if (len(message.mentions) == 1):
-            await messages.GetAvatar(message, message.mentions[0])
+            await messages.GetAvatar(message, message.mentions[0], client)
         else:
-            await messages.GetAvatar(message, message.author)
+            await messages.GetAvatar(message, message.author, client)
 
     if message.content.startswith('39M!8Ball') and len(message.content) > 11:
         await messages.EightBallResponse(message)
