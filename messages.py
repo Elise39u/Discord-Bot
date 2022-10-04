@@ -84,4 +84,9 @@ async def EliseGenderStory(message):
 
 
 async def LMSStory(message):
-  await EmbedBuilder.BuildEmbed(message, "Luka missing story", "A fan fiction story about our beloved Girl Juju and her friend Hatsune Miku. Read through the story on how 2 girls waited one day on her friend luka. But she never seemed to appear at the place they were suppose to meet. \n\n Go on with Miku, Juju and  much more of their vocaloid friends on a musical tour. Watch as Juju and Miku travel across the world to find their missing friend luka. Go with the 2 as the travel and sing songs from your favourite diva games. \n\n Juju never sung before in her life. Can Miku teach her new friend to sing and be an artist. Or does the story have some weird and loving twits. Or does Juju really transform into a true artist girl? \n\n Find out by clicking on the title", "https://cdn.discordapp.com/attachments/709057115159003156/1005109230610694264/20220805144557_1.jpg", None, "🎀 LMS on youtube 🎀", None, "https://www.youtube.com/playlist?list=PLNc-vlTat7vhdoo6Zg6tL7VcMibwc74w6")
+   await EmbedBuilder.BuildEmbed(
+        message, "Luka missing story",
+        "A fan fiction story about our beloved Girl Juju and her friend Hatsune Miku. Read through the story on how 2 girls waited one day on her friend luka. But she never seemed to appear at the place they were suppose to meet. \n\n Go on with Miku, Juju and  much more of their vocaloid friends on a musical tour. Watch as Juju and Miku travel across the world to find their missing friend luka. Go with the 2 as the travel and sing songs from your favourite diva games. \n\n Juju never sung before in her life. Can Miku teach her new friend to sing and be an artist. Or does the story have some weird and loving twits. Or does Juju really transform into a true artist girl? \n\n Find out by clicking on the title", "https://cdn.discordapp.com/attachments/709057115159003156/1005109230610694264/20220805144557_1.jpg",
+        None, "🎀 LMS on youtube 🎀", None,
+        "https://www.youtube.com/playlist?list=PLNc-vlTat7vhdoo6Zg6tL7VcMibwc74w6"
+    )

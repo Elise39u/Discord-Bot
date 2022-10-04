@@ -307,9 +307,7 @@ markupsafe = []
 multidict = []
 numpy = []
 requests = []
-texttoowo = [
-    {file = "TextToOwO-2.0.1.tar.gz", hash = "sha256:594f9dd459d4a9044c75ad73e5a10f5f1ab569d91cd60553b5648dc064bcb9bc"},
-]
+texttoowo = []
 typing-extensions = []
 urllib3 = []
 werkzeug = []
