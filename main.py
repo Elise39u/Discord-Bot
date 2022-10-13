@@ -119,6 +119,20 @@ async def on_message(message):
       await message.delete()
       await message.channel.send(text_to_owo(f"{message.author.display_name} please add a text for me to OWO. Love Miku"))
 
+    if message.content.startswith('39M!Say') and len(message.content) > 7 and "@everyone" not in message.content and "@here" not in message.content:
+      await message.delete()
+      await message.channel.send(message.content[7:])
+    elif message.content.startswith('39M!Say') and len(message.content) > 7 and "@everyone"  in message.content:
+      await message.delete()
+      await message.channel.send(f"{message.author} please dont use the everyone tag")
+    elif message.content.startswith('39M!Say') and len(message.content) > 7 and "@here" in message.content:
+      await message.delete()
+      await message.channel.send(f"{message.author} please dont use the here tag")
+    elif message.content.startswith('39M!Say') and len(message.content) <=7:
+      await message.delete()
+      await message.channel.send(f"{message.author} im not gonna say my own command uwu!")
+  
+
     if message.content.startswith('39M!Kick'):
         haha = False
         roleCheck = moderation.checkModRoles(message, haha)
