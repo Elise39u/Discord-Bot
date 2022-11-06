@@ -71,6 +71,10 @@ async def on_message(message):
       await message.delete()
       await message.channel.send('https://cdn.discordapp.com/attachments/997798399728418867/997798441004568597/unknown.png')
       
+    if message.content.startswith('39M!Point'):
+      await message.delete()
+      await message.channel.send('https://cdn.discordapp.com/attachments/847134276448288830/1038796885240066089/point.png')  
+    
     if message.content.startswith('39M!Roles'):
       await message.delete()
       await roles.give_role_menu(client, message, message.author)
