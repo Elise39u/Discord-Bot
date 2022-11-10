@@ -41,7 +41,10 @@ async def ErrorMessage(message, description, reason, user):
 
 async def UpdatedMessage(client, beforeMessage, afterMessage):
   member = beforeMessage.author
-  
+
+  if member == client.user:
+        return
+    
   updateEmbed = discord.Embed(title=f"I saw someone updated their message in {beforeMessage.channel.name}", description=f"Message before was: **{beforeMessage.content}** \n New update message is: **{afterMessage.content}**")
   updateEmbed.add_field(name="**Link to message**", value=f"{beforeMessage.jump_url}", inline=True)
   updateEmbed.set_author(name=f"{beforeMessage.author.display_name}", icon_url=member.avatar_url)
@@ -52,7 +55,10 @@ async def UpdatedMessage(client, beforeMessage, afterMessage):
 
 async def DeleteMessage(message, client):
   member = message.author
-
+  
+  if member == client.user:
+        return
+    
   deletedEmbed = discord.Embed(title=f"A message has been deleted in {message.channel.name}", description=f"{member.display_name} has deleted **{message.content}**")       
   deletedEmbed.add_field(name="**Link to channel**", value=f"{message.jump_url}", inline=True)
   deletedEmbed.set_author(name=f"{member.display_name}", icon_url=member.avatar_url)
