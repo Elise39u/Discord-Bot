@@ -145,7 +145,7 @@ async def on_message(message):
             if (imuunRole):
                 await moderation.ErrorMessage(
                     message,
-                    "An error occured with the 39M!Kick command. Hang om im looking into the issue <:MikuStare:714726830703247362>",
+                    "An error occured with the 39M!Kick command. Hang om im looking into the issue <:MikuStare:1048727307612868640>>",
                     "I cant kick people with the role Vocaloid or Manager or Myself",
                     message.author)
             else:
@@ -153,7 +153,7 @@ async def on_message(message):
         else:
             await moderation.ErrorMessage(
                 message,
-                "An error occured with the 39M!Kick command. Hang om im looking into the issue <:MikuStare:714726830703247362>",
+                "An error occured with the 39M!Kick command. Hang om im looking into the issue <:MikuStare:1048727307612868640>",
                 "Lacks the permissions to use this command", message.author)
 
 

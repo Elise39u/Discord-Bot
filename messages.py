@@ -5,7 +5,7 @@ import EmbedBuilder
 
 async def onHelpMessage(message):
     await message.channel.send(
-        "<:MikuStare:714726830703247362> You wanted to know what i can do hang on ** Searching for info ** <:Cute:879363818982084618>"
+        "<:MikuStare:1048727307612868640> You wanted to know what i can do hang on ** Searching for info ** <:Cute:879363818982084618>"
     )
     await EmbedBuilder.BuildEmbed(
         message, "I found my commands. *Whistele noises*",
@@ -26,7 +26,7 @@ async def GetAvatar(message, member):
 
 async def RandomVocaloid(message):
   vocaloidChoice = [
-    "<:MikuStare:714726830703247362> Hatsune Miku",
+    "<:MikuStare:1048727307612868640> Hatsune Miku",
     "<:LukaStare:813132474082525215> Megurine Luka",
     "<:RinStare:816647976129921082> Kagamine Rin",
     "<:LenStare:878744221501227018> Kagamine Len",
@@ -43,15 +43,15 @@ async def RandomVocaloid(message):
 async def EightBallResponse(message):
     response = [
         "🎱 8ball said you should rethink that one chief",
-        "Is it <:MikuStare:714726830703247362>",
+        "Is it <:MikuStare:1048727307612868640>",
         "I say without a doubt <:MikuJudge:816647811092840479>",
         "<:MikuBlush:757984284052029500> I might saw that",
         "Just forget about it sweet heart 💜 ",
         "As I see it...... Well cant tell you <:MikuDerp:817310369772339200> ",
         "🎱 said yes", "Hella No <:mikuded:856532754715377664>",
         "For once a good question my friend i see it as a yes",
-        "<:MikuStare:714726830703247362> no",
-        "<:MikuStare:714726830703247362> Signs point to yes",
+        "<:MikuStare:1048727307612868640> no",
+        "<:MikuStare:1048727307612868640> Signs point to yes",
         "Just Forget about it chief"
     ]
     await message.channel.send(
