@@ -137,6 +137,14 @@ async def on_message(message):
       await message.channel.send(f"{message.author} im not gonna say my own command uwu!")
   
 
+    if message.content.startswith('39M!WristWorld'):
+      await message.delete()
+      await message.channel.send("You’ve 📡👨 seen 👀👤🎅🏻 Miku on 🔛 stage, 4️⃣💖 but 😠 what 👏🏼 about 🥴 your 👉 wrist? ⌚💯 Wrist ⌚💯 World 🌍 is an AR game 🎯 using 😏 wristbands, now 🫂 featuring Hatsune Miku! Collect songs, dances, and even ✋ save 🦎 the world! 🌍 Do 👀 You 👀👦 Wrist ⌚💯 World? 🌎 wrist ⌚💯 world 🌍🌎🌏")
+
+    if message.content.startswith('39M!ShitPost'):
+      await message.channel.send("I just need to get this out of my system because god dang is this game hard 😠. I've beaten Elden Ring, done nightmare in Doom Eternal, played Osu for a bit, done a lot of SIF, some Bandori, some Cytus 1-2 but I feel like none of that could have prepared me for how difficult this game actually is 🤨. I finally got my hands on it for Steam yesterday and I'm just genuinely shocked at how bad I am in this game 🥺. \n\n I could usually manage 200 in combos in games like Bandori on hard-expert difficulty 😤 but I genuinely could not get a single 100 combo on any song I tried 😠. Among the songs I've tried were Dune, Sweet Devil, Happiness committee, Freely Tomorrow on medium difficulty and the highest I could ever average throughout them were 55%~ 🥺 \n\n Is there any general advice to get better at the game besides just playing the same beat map? 🥺 A general problem I have is hitting a lot of safe notes, I rarely miss notes unless I choke but I am hitting a lot of massive safe breaking combos. Challenge Time unironically for once, actually gives me a challenge for once. I've choked a couple of times in my 2 hour play through. 🥺")
+
+    
     if message.content.startswith('39M!Kick'):
         haha = False
         roleCheck = moderation.checkModRoles(message, haha)
