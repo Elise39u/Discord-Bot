@@ -7,7 +7,7 @@ import EmbedBuilder
 import discord
 from discord.ext import tasks
 
-@tasks.loop(seconds=60)
+@tasks.loop(seconds=120)
 async def checkforVideos(client):
   with open("youtubeJson.json", "r") as ytData:
     data=json.load(ytData)

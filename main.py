@@ -104,6 +104,15 @@ async def on_message(message):
     if message.content.startswith('39M!LMS'):
         await messages.LMSStory(message)
 
+    if message.content == '39M!Cosplay':
+      await messages.Cosplay(message)
+
+    if message.content == '39M!CosplayIdeas':
+      await messages.CosplayIdeas(message)
+
+    if message.content.startswith('39M!Covers'):
+      await messages.Covers(message)
+
     if message.content.startswith('39M!MyAvatar'):
         if (len(message.mentions) == 1):
             await messages.GetAvatar(message, message.mentions[0])
