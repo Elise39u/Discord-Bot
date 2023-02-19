@@ -11,14 +11,10 @@ import moderation
 import youtube
 import roles
 
-intents = discord.Intents.default()
-intents.members = True
-intents.reactions = True
-intents.messages = True
 activity = discord.Activity(type=discord.ActivityType.playing,
                             name="Traveling through Sekais with Elise")
 my_secret = os.environ['TOKEN']
-client = discord.Client(intents=intents, activity=activity)
+client = discord.Client(intents=discord.Intents.all(), activity=activity)
 blackListedWords = ["kanker", "cancer", "https://discord.gg/", "tranny"]
 
 
@@ -46,6 +42,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
+      
     if len(message.content) > 0:
         for word in blackListedWords:
             if word in message.content.lower():
