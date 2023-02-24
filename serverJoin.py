@@ -7,6 +7,6 @@ imageUrl = random.choice(embedWelcomeURLS)
 async def onMemberJoin(member, client):
   channel = client.get_channel(797789187910664193)
   role = member.guild.get_role(699572966551322635)
-  await channel.send("{0.mention} welcome to Elise her hangout".format(member))
-  await EmbedBuilder.BuildEmbed(None, "🎀 Welcome we have some usual information 🎀", "We have a few rules and things to look out for here 💖 \n <#703637751274143854> <-- Channel where you can find the rules of the server 🎀 \n <#797792369416208386>  <-- For some information on the server 🎀 \n <#699557641818734638> <-- Main  chat 🎀 \n  <#709050194662260797> <-- channel for some roles  🎀 \n <#962632709405032458> <-- Introduction about me if your interested 🎀💙", imageUrl, 0xfe3ee4, "🎀 Welcome to elise her hangout 🎀", channel, None)
+  await channel.send("{0.mention} welcome to Elise her Girly Gamer Sekai".format(member))
+  await EmbedBuilder.BuildEmbed(None, "🎀 Welcome we have some usual information 🎀", "We have a few rules and things to look out for here 💖 \n <#703637751274143854> <-- Channel where you can find the rules of the server 🎀 \n <#797792369416208386>  <-- For some information on the server 🎀 \n <#699557641818734638> <-- Main  chat 🎀 \n  <#709050194662260797> <-- channel for some roles  🎀 \n <#962632709405032458> <-- Introduction about me if your interested 🎀💙", imageUrl, 0xfe3ee4, "🎀 Welcome to elise her sekai 🎀", channel, None)
   await member.add_roles(role)

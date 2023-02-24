@@ -21,7 +21,7 @@ async def GetAvatar(message, member):
         "I found something for you {0.author.display_name}".format(message))
     await EmbedBuilder.BuildEmbed(
         message, "Found {0.display_name} avatar".format(member),
-        "I found the following avatar for you", member.avatar_url, 0xfe3ee4,
+        "I found the following avatar for you", member.avatar, 0xfe3ee4,
         "🎀 Pictures Left and right? 🎀", None, None)
 
 async def RandomVocaloid(message):
@@ -69,7 +69,7 @@ async def BlackListedWords(message, client):
         color=0xff0000)
     EmbedWords.set_footer(text="🎀 Banned words 🎀")
     EmbedWords.set_author(name="{0.author.name}".format(message),
-                          icon_url="{0.author.avatar_url}".format(message))
+                          icon_url="{0.author.avatar}".format(message))
     await channel.send(embed=EmbedWords)
 
 
