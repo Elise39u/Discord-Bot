@@ -13,7 +13,7 @@ async def OnKick(message, client):
 
 def checkModRoles(message, boolean):
   for userRole in message.author.roles:
-    if userRole.name == 'Vocaloids' or userRole.name == 'Game Masters':
+    if userRole.name == 'Vocaloids' or userRole.name == 'Game guardians':
       boolean = True
       break;
   return boolean
@@ -27,7 +27,7 @@ def checkOwnerRoles(message, boolean):
   
 def checkAdminRole(member, boolean):
   for userRole in member.roles:
-   if userRole.name == 'Vocaloids' or userRole.name == 'Game Masters' or userRole.name == 'Sekai Miku Bot': 
+   if userRole.name == 'Vocaloids' or userRole.name == 'Game guardians' or userRole.name == 'Sekai Miku Bot': 
      boolean = True
      break;
   return boolean

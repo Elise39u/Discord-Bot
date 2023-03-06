@@ -164,7 +164,7 @@ async def on_message(message):
                 await moderation.ErrorMessage(
                     message,
                     "An error occured with the 39M!Kick command. Hang om im looking into the issue <:MikuStare:1048727307612868640>>",
-                    "I cant kick people with the role Game Masters or Manager or Myself",
+                    "I cant kick people with the role Game guardians or Vocaloids or Myself",
                     message.author)
             else:
                 await moderation.OnKick(message, client)
