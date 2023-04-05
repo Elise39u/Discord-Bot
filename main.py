@@ -31,8 +31,7 @@ async def on_ready():
 #https://stackoverflow.com/a/71169236 and then the discord.py version 
 @tree.command(name = "ping", description = "Wanna ping pong or see my ms", guild=discord.Object(id=699557641818734634)) #Add the guild ids in which the slash command will appear. If it should be in all, remove the argument, but note that it will take some time (up to an hour) to register the command if it's for all guilds.
 async def first_command(interaction):
-  message = "ms. Found my ping ms is it high or not UwU?"
-  await interaction.response.send_message(str(randrange(1000)) + message)
+  await interaction.response.send_message('Pong! Is my ping good enough or too high UwU? **{0}ms**'.format(round(client.latency, 1)))
 
 @client.event
 async def on_message_edit(beforeMessage, afterMessage):
