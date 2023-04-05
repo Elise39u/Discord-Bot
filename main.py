@@ -6,24 +6,33 @@ from serverLeave import onMemberLeave
 from socials import onSocialsMessage
 from Jokes import onJoke
 from TextToOwO.owo import text_to_owo
+from discord import app_commands
 import messages
 import moderation
 import youtube
 import roles
+from random import randrange
 
 activity = discord.Activity(type=discord.ActivityType.playing,
                             name="Traveling through Sekais with Elise")
 my_secret = os.environ['TOKEN']
-client = discord.Client(intents=discord.Intents.all(), activity=activity)
+intents = discord.Intents.all()
+client = discord.Client(intents=intents, activity=activity)
+tree = app_commands.CommandTree(client)
 blackListedWords = ["kanker", "cancer", "https://discord.gg/", "tranny"]
-
 
 #Register an event and define when the bot is ready to use
 @client.event
 async def on_ready():
-    print("I have launched with {0.user}".format(client))
+    await tree.sync(guild=discord.Object(id=699557641818734634))
     youtube.checkforVideos.start(client)
+    print("I have launched with {0.user}".format(client))
 
+#https://stackoverflow.com/a/71169236 and then the discord.py version 
+@tree.command(name = "ping", description = "Wanna ping pong or see my ms", guild=discord.Object(id=699557641818734634)) #Add the guild ids in which the slash command will appear. If it should be in all, remove the argument, but note that it will take some time (up to an hour) to register the command if it's for all guilds.
+async def first_command(interaction):
+  message = "ms. Found my ping ms is it high or not UwU?"
+  await interaction.response.send_message(str(randrange(1000)) + message)
 
 @client.event
 async def on_message_edit(beforeMessage, afterMessage):
@@ -37,7 +46,7 @@ async def on_message_delete(message):
     else:
         await moderation.DeleteMessage(message, client)
 
-
+   
 #Function to check for a message
 #The on_message function can take a argument
 @client.event
@@ -62,7 +71,7 @@ async def on_message(message):
     #Check of the messages starts with 39!M and then await a sendback depending on the message command
     if message.content.startswith('39M!Hello'):
         await message.channel.send(
-            "Hello there i`m Hatsune miku can i help you with something? {0.author.display_name} \nI suggested if you want to know what i can do by using 39M!Help \nOther wise feel free to look around here in the sekai world"
+            "Hello there i`m Gamer Girl miku can i help you with something? {0.author.display_name} \nI suggested if you want to know what i can do by using 39M!Help \nOther wise feel free to look around here in the Arcade sekai of Elise or known as the Girly Gamer sekai"
             .format(message))
 
     if "objection" in message.content:
