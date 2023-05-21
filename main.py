@@ -11,7 +11,6 @@ import messages
 import moderation
 import youtube
 import roles
-from random import randrange
 
 activity = discord.Activity(type=discord.ActivityType.playing,
                             name="Traveling through Sekais with Elise")
@@ -211,14 +210,14 @@ async def on_message(message):
 
 
 #Check if a member has left or joined the guild
-@client.event
-async def on_member_join(member):
-    await onMemberJoin(member, client)
+#@client.event
+#async def on_member_join(member):
+    #await onMemberJoin(member, client)
 
 
-@client.event
-async def on_member_remove(member):
-    await onMemberLeave(member, client)
+#@client.event
+#async def on_member_remove(member):
+    #await onMemberLeave(member, client)
 
 
 #client.run to run the bot with the secret token
