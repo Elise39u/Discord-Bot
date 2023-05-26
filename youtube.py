@@ -86,13 +86,46 @@ async def checkforVideos(client):
   
             await discord_channel.send(vidTitle)
             await EmbedBuilder.BuildEmbed(None, embedTitle, embedDescription, "http://img.youtube.com/vi/" + vidId + "/0.jpg", None, "🎀 New Vid Upload 🎀", discord_channel, latest_video_url)
-  except Exception as e:
-       # Log the error
-        logging.error(f"Error during JSON file operation: {e}")
+  except requests.RequestException as e:
+        # Log HTTP request errors
+        logging.error(f"Error during HTTP request: {e}")
 
         # Get the error channel
         error_channel = client.get_channel(error_channel_id)
         if error_channel:
-            # Send the error message to the error channel
+            # Send the error message to the error channel  
             await error_channel.send("https://cdn.discordapp.com/attachments/709057115159003156/1109789108722741389/909558100162379877.gif")
-            await error_channel.send(f"<@203095887264743424><@203095887264743424> Halp Mommy Elise. I found an error: **{e}**")  
+            await error_channel.send(f"<@203095887264743424> Halp Mommy Elise. I found an error during the HTTP request: **{e}**")
+
+  except discord.HTTPException as e:
+        # Log Discord API errors
+        logging.error(f"Error during Discord API usage: {e}")
+
+        # Get the error channel
+        error_channel = client.get_channel(error_channel_id)
+        if error_channel:
+            # Send the error message to the error channel  
+            await error_channel.send("https://cdn.discordapp.com/attachments/709057115159003156/1109789108722741389/909558100162379877.gif")
+            await error_channel.send(f"<@203095887264743424> Halp Mommy Elise. I found an error during Discord API usage: **{e}**")
+
+  except json.JSONDecodeError as e:
+        # Log JSON parsing errors
+        logging.error(f"Error during JSON parsing: {e}")
+
+        # Get the error channel
+        error_channel = client.get_channel(error_channel_id)
+        if error_channel:
+            # Send the error message to the error channel  
+            await error_channel.send("https://cdn.discordapp.com/attachments/709057115159003156/1109789108722741389/909558100162379877.gif")
+            await error_channel.send(f"<@203095887264743424> Halp Mommy Elise. I found an error during JSON parsing: **{e}**")
+
+  except Exception as e:
+        # Log other general exceptions
+        logging.error(f"Error during video checking: {e}")
+
+        # Get the error channel
+        error_channel = client.get_channel(error_channel_id)
+        if error_channel:
+            # Send the error message to the error channel  
+            await error_channel.send("https://cdn.discordapp.com/attachments/709057115159003156/1109789108722741389/909558100162379877.gif")
+            await error_channel.send(f"<@203095887264743424> Halp Mommy Elise. I found an error during video checking: **{e}**")
